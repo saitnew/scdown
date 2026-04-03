@@ -70,7 +70,7 @@ export default function App() {
         responseType: 'blob',
       });
       
-      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const url = window.URL.createObjectURL(new Blob([response.data], { type: 'audio/mpeg' }));
       const link = document.createElement('a');
       link.href = url;
       const filename = `${track.user?.username || 'Unknown Artist'} - ${track.title}.mp3`.replace(/[<>:"/\\|?*]+/g, '');
